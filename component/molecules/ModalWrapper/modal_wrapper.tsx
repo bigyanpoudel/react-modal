@@ -52,7 +52,6 @@ export class ModalWrapper extends Component<{}, { modals: ModalOpenParams[] }> {
     { ...props }: { [key: string]: any },
     index: number = this.state.modals.length - 1
   ) => {
-    console.log("updating modal", index, props);
     const { modals } = this.state;
 
     const modalRef = modals[index]?.ref;
