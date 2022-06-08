@@ -1,4 +1,4 @@
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Dimension {
   width: number;
@@ -6,17 +6,17 @@ interface Dimension {
 }
 
 const getWindowDimensions = (): Dimension => {
-  if (typeof window !== "undefined") { 
-  const { innerWidth: width, innerHeight: height } = window ;
+  if (typeof window !== "undefined") {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height,
+    };
+  }
   return {
-    width,
-    height,
+    width: 0,
+    height: 0,
   };
-}
-return {
-  width:0,
-  height:0,
-};
 };
 
 /**

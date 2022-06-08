@@ -45,3 +45,7 @@ overflow: hidden;
   font-size: 22px !important;
   cursor: pointer;
 }
+
+.confirmation__modal--body{
+  padding: 14px;
+}

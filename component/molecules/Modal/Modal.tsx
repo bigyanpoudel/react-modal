@@ -1,19 +1,7 @@
 import { Modal } from "antd";
 import React from "react";
+import { ModalProps } from "../../../types/modal_props";
 import { Modal as ModalUtil } from "../../../utils/model_utils";
-
-export interface ModalProps {
-  component?: React.FC<any>;
-  props?: { [key: string]: unknown };
-  isVisible?: boolean;
-  closable?: boolean;
-  onClose?: Function;
-  closeModal?: Function;
-  width?: number;
-  title?: string;
-  className?: string;
-  enableBottomSheet?: boolean;
-}
 
 export const ModalComponent = React.forwardRef(
   (propsValues: ModalProps, ref) => {
@@ -27,6 +15,10 @@ export const ModalComponent = React.forwardRef(
       width = 500,
       title,
       className = "",
+      modalFooter,
+      closeable = true,
+      closeIcon = false,
+      centered = true,
     } = propsValues;
 
     const onModalClose = (isClose: any) => {
@@ -43,9 +35,12 @@ export const ModalComponent = React.forwardRef(
         visible={isVisible}
         title={title}
         onCancel={onModalClose}
-        footer={null}
+        footer={modalFooter ? modalFooter : null}
         width={width}
         className={className}
+        closeIcon={closeIcon}
+        closable={closeable}
+        centered={centered}
       >
         <div
           style={{

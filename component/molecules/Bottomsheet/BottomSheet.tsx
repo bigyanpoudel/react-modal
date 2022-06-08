@@ -1,31 +1,12 @@
+import { CloseOutlined } from "@ant-design/icons";
 import React, { forwardRef } from "react";
 import { BottomSheet } from "react-spring-bottom-sheet";
+import { ModalProps } from "../../../types/modal_props";
 import { Modal as ModalUtil } from "../../../utils/model_utils";
 import "react-spring-bottom-sheet/dist/style.css";
-import { Col, Row, Space } from "antd";
-import { CloseCircleOutlined, CloseOutlined } from "@ant-design/icons";
-
-export interface BottomSheetProps {
-  component?: React.FC<any>;
-  props?: { [key: string]: unknown };
-  isVisible?: boolean;
-  closable?: boolean;
-  onClose?: Function;
-  closeModal?: Function;
-  width?: number;
-  title?: string;
-  className?: string;
-  enableBottomSheet?: boolean;
-  fullScreen?: boolean;
-  closeIcon?: boolean;
-  headingClassName?: boolean;
-  headingComponent?: React.FC<any>;
-  footerComponent?: React.FC<any>;
-  bottomSheetClassName?: string;
-}
 
 export const CustomBottomSheet = forwardRef(
-  (propsValues: BottomSheetProps, ref: any) => {
+  (propsValues: ModalProps, ref: any) => {
     const {
       component: RenderInner,
       props,
@@ -34,14 +15,14 @@ export const CustomBottomSheet = forwardRef(
       closeModal = () => {},
       isVisible = false,
       title,
-      footerComponent: FooterComponent,
+      bottomSheetFooter: FooterComponent,
       headingComponent: HeadingComponent,
       fullScreen = false,
       closeIcon = false,
       headingClassName = "",
       bottomSheetClassName = "",
     } = propsValues;
-    console.log("props are:-", propsValues);
+
     const onBottomSheetClose = () => {
       if (!closable) return;
       if (closable) {
@@ -50,6 +31,7 @@ export const CustomBottomSheet = forwardRef(
       }
       ModalUtil.close();
     };
+
     const RenderHeadComponent = () => {
       if (HeadingComponent) {
         return <HeadingComponent />;
@@ -67,6 +49,7 @@ export const CustomBottomSheet = forwardRef(
         );
       }
     };
+
     return (
       <BottomSheet
         open={isVisible}

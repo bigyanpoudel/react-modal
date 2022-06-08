@@ -4,12 +4,13 @@ import { useState } from "react";
 import HelloWorld from "../component/organism/helloWorld/hello_world";
 import { useWindowDimensions } from "../hooks/useWindowsDimensions";
 import styles from "../styles/Home.module.css";
+import { AsyncConfirmationModal } from "../utils/async_confirm_modal.utils";
+import { ConfirmationModal } from "../utils/confirm_modal_utils";
 import { Modal } from "../utils/model_utils";
 
 const Home: NextPage = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const dimensions = useWindowDimensions();
-  console.log("dimension", dimensions);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -73,6 +74,25 @@ const Home: NextPage = () => {
     });
   };
 
+  const openConfirmationModal = () => {
+    ConfirmationModal({
+      onOkay: () => {
+        console.log("handle onKay...");
+      },
+    });
+  };
+
+  const openAsynConfirmationModal = async () => {
+    const confirm = await AsyncConfirmationModal({});
+    console.log("confirm", confirm);
+    //todo
+    // if(confirm){
+    // handle the required action if user confirm
+    // }else{
+    // handle the required action if user reject
+    // }
+  };
+
   return (
     <div className={styles.container}>
       <Button type="dashed" onClick={openModal}>
@@ -87,6 +107,16 @@ const Home: NextPage = () => {
       <br />
       <Button type="primary" onClick={showModal}>
         Open Modal general approach
+      </Button>
+      <br />
+      <br />
+      <Button type="primary" onClick={openConfirmationModal}>
+        Open Confirmation Modal
+      </Button>
+      <br />
+      <br />
+      <Button type="primary" onClick={openAsynConfirmationModal}>
+        Open Async Confirmation Modal
       </Button>
 
       <AntModal
