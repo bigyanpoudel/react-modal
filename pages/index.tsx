@@ -86,7 +86,7 @@ const Home: NextPage = () => {
       <br />
       <br />
       <Button type="primary" onClick={showModal}>
-        Open Modal with setState
+        Open Modal general approach
       </Button>
 
       <AntModal
