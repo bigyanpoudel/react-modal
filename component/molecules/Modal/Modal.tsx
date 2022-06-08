@@ -12,6 +12,7 @@ export interface ModalProps {
   width?: number;
   title?: string;
   className?: string;
+  enableBottomSheet?: boolean;
 }
 
 export const ModalComponent = React.forwardRef(

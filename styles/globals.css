@@ -16,10 +16,10 @@ a {
 }
 .ant-modal-body {
 padding: 0px !important;
+overflow: hidden;
 }
 
 .modal__bottom{
-  position: relative;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -30,4 +30,18 @@ padding: 0px !important;
   padding: 5px 10px;
   border-top: 0.5px solid lightgray;
   background: white;
+}
+.bottomsheet_heading{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+  align-items: center;
+}
+.bottomsheet_heading--icon{
+  position: fixed;
+  right: 20px;
+  margin: 0 auto;
+  font-size: 22px !important;
+  cursor: pointer;
 }
