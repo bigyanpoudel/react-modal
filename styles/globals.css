@@ -49,3 +49,8 @@ overflow: hidden;
 .confirmation__modal--body{
   padding: 14px;
 }
+
+.content{
+  padding: 8px 10px auto 10px;
+  
+}

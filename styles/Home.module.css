@@ -1,3 +1,8 @@
 .container {
-  padding: 2rem 3rem;
+  padding: 5rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-gap: 20px;
+  justify-content: center;
+  align-items: center;
 }

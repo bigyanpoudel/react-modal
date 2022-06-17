@@ -8,9 +8,11 @@ const HelloWorld = ({ callback, data, update, enableBottomSheet }: any) => {
         position: "relative",
       }}
     >
-      <div>Updated props is {data || "Null"}</div>
-      <div>Hello world</div>
-      <div>Hello world</div>
+      <div className="content">
+        <div>Updated props is {data || "Null"}</div>
+        <div>Hello world</div>
+        <div>Hello world</div>
+      </div>
       <div
         className="modal__bottom"
         style={{

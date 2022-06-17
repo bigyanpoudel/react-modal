@@ -77,14 +77,14 @@ const Home: NextPage = () => {
   const openConfirmationModal = () => {
     ConfirmationModal({
       onOkay: () => {
-        console.log("handle onKay...");
+        // console.log("handle onKay...");
       },
     });
   };
 
   const openAsynConfirmationModal = async () => {
     const confirm = await AsyncConfirmationModal({});
-    console.log("confirm", confirm);
+    // console.log("confirm", confirm);
     //todo
     // if(confirm){
     // handle the required action if user confirm
@@ -92,29 +92,26 @@ const Home: NextPage = () => {
     // handle the required action if user reject
     // }
   };
+  console.log("i am here....");
 
   return (
     <div className={styles.container}>
       <Button type="dashed" onClick={openModal}>
         Open Modal using Function
       </Button>
-      <br />
-      <br />
+
       <Button type="dashed" onClick={openModalAndBottomSheet}>
         Open Modal and bottomsheet on small device
       </Button>
-      <br />
-      <br />
+
       <Button type="primary" onClick={showModal}>
         Open Modal general approach
       </Button>
-      <br />
-      <br />
-      <Button type="primary" onClick={openConfirmationModal}>
+
+      <Button type="primary" danger onClick={openConfirmationModal}>
         Open Confirmation Modal
       </Button>
-      <br />
-      <br />
+
       <Button type="primary" onClick={openAsynConfirmationModal}>
         Open Async Confirmation Modal
       </Button>

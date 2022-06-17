@@ -63,26 +63,23 @@ export class ModalWrapper extends Component<{}, { modals: ModalOpenParams[] }> {
   render() {
     const { modals } = this.state;
 
-    const modalsElement = modals.map(
-      (modal: ModalOpenParams, index: number) => {
-        if (modal.enableBottomSheet) {
-          return (
-            <CustomBottomSheet
-              key={modal.id + "" + index}
-              closeModal={this.close}
-              {...modal}
-            />
-          );
-        } else
-          return (
-            <ModalComponent
-              key={modal.id + "" + index}
-              closeModal={this.close}
-              {...modal}
-            />
-          );
-      }
-    );
-    return modalsElement;
+    return modals.map((modal: ModalOpenParams, index: number) => {
+      if (modal.enableBottomSheet) {
+        return (
+          <CustomBottomSheet
+            key={modal.id + "" + index}
+            closeModal={this.close}
+            {...modal}
+          />
+        );
+      } else
+        return (
+          <ModalComponent
+            key={modal.id + "" + index}
+            closeModal={this.close}
+            {...modal}
+          />
+        );
+    });
   }
 }
