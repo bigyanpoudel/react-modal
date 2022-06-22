@@ -1,7 +1,6 @@
 import { Button, Modal as AntModal } from "antd";
 import type { NextPage } from "next";
 import { useState } from "react";
-import HelloWorld from "../component/organism/helloWorld/hello_world";
 import { useWindowDimensions } from "../hooks/useWindowsDimensions";
 import styles from "../styles/Home.module.css";
 import { AsyncConfirmationModal } from "../utils/async_confirm_modal.utils";
@@ -126,6 +125,40 @@ const Home: NextPage = () => {
         <p>Some contents...</p>
         <p>Some contents...</p>
       </AntModal>
+    </div>
+  );
+};
+
+const HelloWorld = ({
+  callback,
+  data,
+  update,
+  enableBottomSheet = false,
+}: any) => {
+  return (
+    <div
+      style={{
+        position: "relative",
+      }}
+    >
+      <div className="content">
+        <div>Updated props is {data || "Null"}</div>
+        <div>Hello world</div>
+        <div>Hello world</div>
+      </div>
+      <div
+        className="modal__bottom"
+        style={{
+          position: enableBottomSheet ? "fixed" : "absolute",
+        }}
+      >
+        <Button type="primary" style={{ marginRight: "10px" }} onClick={update}>
+          update props
+        </Button>
+        <Button type="primary" danger onClick={callback}>
+          Cancel
+        </Button>
+      </div>
     </div>
   );
 };
